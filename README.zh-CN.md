@@ -1,5 +1,7 @@
 <div align="center">
 
+![AI 辅助 3D 设计的原创概念插画：探索中的轮廓线与层叠的开放曲面，表达想法成形与反复推敲；不是 CAD 渲染或经过验证的打印实物。](docs/images/readme-banner.svg)
+
 # 3d-print-modeling
 
 **把人的诉求，变成能讲清、能制造、能持续改进的设计。**

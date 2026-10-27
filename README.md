@@ -1,5 +1,7 @@
 <div align="center">
 
+![Original concept illustration for AI-assisted 3D design: exploratory contours and a layered, open form suggest ideas taking shape and being reimagined; not a CAD render or tested print.](docs/images/readme-banner.svg)
+
 # 3d-print-modeling
 
 **Turn a human need into a design you can explain, build and improve.**
