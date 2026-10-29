@@ -1,8 +1,32 @@
-# 公开发布范围 · 1.4.0
+# 公开发布范围 · 1.5.0
 
-本版将既有技能组织为开放式3D打印项目主技能：理解诉求，亲自设计、建模与表达，连接制造和项目管理，按问题研究诊断并回收知识。需求、方案、建模、制造和实物反馈不是每次必走的固定阶段。正文及附件维护在所属项目，Obsidian不留副本或跳转占位；普通小改不反复全库研究或重审。下方旧版本记录描述当时范围，当前入口与来源关联以1.4.0为准；其中“六阶段保持”不是当前要求。
+本版将既有技能组织为开放式3D打印项目主技能：理解诉求，亲自设计、建模与表达，连接制造和项目管理，按问题研究诊断并回收知识。需求、方案、建模、制造和实物反馈不是每次必走的固定阶段。正文及附件维护在所属项目，Obsidian不留副本或跳转占位；普通小改不反复全库研究或重审。下方旧版本记录描述当时范围，当前入口与来源关联以1.5.0为准；其中“六阶段保持”不是当前要求。
 
 公开包包括主入口、按需参考、四模块研究摘记、公开来源索引、核心需求模板与客户端界面描述。私人项目版本链、反馈、验证/成本数字、设备库存组合、records、会话/文件ID、现场媒体、模型/3MF、研究证据包及runtime均不随包提供。通用机制不代表某件产品通过验证；公开模型的数字摘记按特定来源定位，原证据未打包，采用前应取得真实原件核查。
+
+## 1.5.0：设计判断、可靠证据与材料配合
+
+本版汇合已完成的通用方法，不迁入私人项目档案，也不把文字规则发布说成新的制造试验。
+
+- **建模与设计。** 新建常规功能件以OpenSCAD为基础，保留已有原生源、曲面、STEP交换和局部网格编辑等例外；解释参数化的用途、输入与派生关系及有限变体验证。从使用动作分配接触、保持、让位、清理和载荷路径，视觉样例与实物结论分开。
+- **可靠几何证据。** 补数值近似的误差、覆盖与加密漂移，区分布尔失败、空集、低维残留和有效实体；域外无改变不代表域内意图已实现。补批量预期覆盖、扫掠镜像、裁切残根与网格表示残差的检查边界，不导入案例数值作通用容差。
+- **可解释的制造取舍。** 先判方案是否成立，再按用户目标比较完整工时、支撑、拆装和整套成本。补工程保存链、真实路径分类、层接圈与圆弧检查；参数、资源目录和机端行为仍按实际版本核实。支持、几何体积或配置字段均不独自证明实际收益。
+- **材料与配合。** 区分名义尺寸、功能间隙、成形偏差和补偿，按现象选择下一项检查；卡扣尺寸、梁/基座刚度、环境、松弛、蠕变及疲劳联动。补偿须核字段语义、对象/材料作用范围和实际生效；用户暂不实操时保留待测，不强制每件试片。
+- **有限知识循环。** 新增可迁移的浅凹/通孔、渐扩薄肩及公开造型研究方法；具体尺寸、媒体和本机证据仍留原项目。按条件复用已有证据，项目问题、技能规则问题和发布状态分开；写回先查重、确认授权并读回，工作区共享记录只改负责部分。
+
+该版本不修改配套OpenSCAD等第三方包、下载原模型、发布私人资产或部署运行时。发布校验限于格式、链接、精确变更范围、隐私及独立文字场景审阅；不等于CAD/切片/设备/实物验证，不提供本机材料配方或跨客户端性能保证。
+
+### 材料配合与补偿来源
+
+以下为本版实际采用的一手材料与固定源码依据，保留取得范围和迁移边界；只归纳方法，不分发原文、图表或预设。
+
+- BASF，*Snap-Fit Design Manual*，©2007，[原厂手册的第三方镜像](https://productdesignonline.com/wp-content/uploads/2019/08/Snap-Fit-Design-Manual.pdf)：III、IV、VI节的梁/基座、圆角、应力松弛与疲劳。未找到同版现行官方源；注塑材料表和许用应变不是FDM卡扣通用值。
+- Stratasys，[Design Considerations: FDM Additive Manufacturing Tooling](https://www.stratasys.com/contentassets/b7785854f88542eb96af69c22af766f5/dg_fdm_designconsiderationsfdmtooling_0718a.pdf)，2018，§1.7、2.2、2.3及2.5：尺寸、温湿度、蠕变、各向异性与孔/接缝。指南设备指标不迁移为接收者设备能力。
+- Armillotta等，[Warpage of FDM parts](https://doi.org/10.1016/j.rcim.2017.09.007)，2018：采用机构库作者稿已取得的§1、§3–4及§5前段，未称核完最终全文；ABSplus-P430矩形板结果不外推数值。
+- Samy等，[Prediction of part distortion in FDM of semi-crystalline polymers](https://doi.org/10.1016/j.cirpj.2021.04.012)，2021：作者稿引言与模型方法支持区分热梯度、结晶及黏弹过程，未复算仿真或移植改善百分比。
+- Spina与Cavalcante，[Hygromechanical Performance of Polyamide Specimens Made with FFF](https://doi.org/10.3390/polym13152401)，2021，[全文XML](https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8347257/fullTextXML)：受控含湿状态和压缩表现不能替代自然调湿时间或卡扣循环寿命。
+- Bambu官方[收缩说明](https://wiki.bambulab.com/en/knowledge-sharing/3d-prints-shrinkage)与[XY孔/轮廓补偿](https://wiki.bambulab.com/en/software/bambu-studio/xy-hole-contour-compensation)。收缩页“内部特征不受影响”的文字不能无条件沿用：固定提交`79df7ae309be398ed30c9f397c13c9911c2edc57`的[PrintObjectSlice.cpp](https://github.com/bambulab/BambuStudio/blob/79df7ae309be398ed30c9f397c13c9911c2edc57/src/libslic3r/PrintObjectSlice.cpp)在所核region路径按壁用材料做逆比例缩放，[ExPolygon.cpp](https://github.com/bambulab/BambuStudio/blob/79df7ae309be398ed30c9f397c13c9911c2edc57/src/libslic3r/ExPolygon.cpp)的相应`scale`同时缩放外轮廓与holes；同一路径存在多材料/涂色跳过条件。这是定点静态证据，不是本机实切或全部发布版本的保证。
+- OrcaSlicer官方[材料基础参数](https://github.com/OrcaSlicer/OrcaSlicer/wiki/material_basic_information)、[精度设置](https://github.com/OrcaSlicer/OrcaSlicer/wiki/quality_settings_precision)、[配合校准](https://github.com/OrcaSlicer/OrcaSlicer/wiki/tolerance_calib)仅作字段与测试语义对照；不据此声称Bambu或接收者本机具有相同字段/行为。
 
 ## 1.4.0：独立维护、主动Jev与配套上游
 

@@ -2,7 +2,7 @@
 name: 3d-print-modeling
 description: "理解诉求并推进完整3D打印项目：研究设计、建模、视觉表达、制造优化与实物迭代；连接专业技能和项目管理，按需用Jev辅助路线与参数取舍，每次使用回收问题和经验。"
 metadata:
-  version: "1.4.0"
+  version: "1.5.0"
   repository: "https://github.com/Loveacup/3d-print-modeling"
   issue_tracker: "https://github.com/Loveacup/3d-print-modeling/issues"
 ---
@@ -19,16 +19,16 @@ metadata:
 - **管理到可交付结果。** 按[项目组织](references/project-organization.md#项目管理接入与本地后备)接续适用的软件和skill（如Linear与`linear-flow`）；没有可用接入则在项目内建立适合规模的任务与决定记录。掌握成果、责任、依赖、阻塞、验收和下一步，不让用户替agent找项目、搬消息或催收结果。阶段与任务用于推进，不用于增加手续。
 - **以关键未知安排工作。** 优先验证会推翻后续工作的假设；已获准、互不冲突的研究、检查和准备可并行，同一模型/共享文件协调写入。普通技术细节自主处理，用户意图、重大取舍或新增权限才需要确认。
 - **接收证据并保全基线。** 现场照片、尺寸或标注按[现场资料落盘](references/requirements-and-review.md#现场资料收到即整理)当轮归档原件。原件、用户批准方案、当前有效分支与历史保持关联；不凭文件名猜最终版，不让参考或新工具悄悄改写用户的保留范围。
-- **先复用相关知识。** 按问题读取下方参考与已有案例，不加载全部历史。使用经验前核条件与证据；遇到反例回到原因和适用范围，不把过去的项目数字或成功当作通用保证。
+- **先复用相关知识。** 按问题读取下方参考与已有案例，不加载全部历史。使用经验前核条件与证据，按[复用边界](references/closeout.md#下次读取应用与纠错)只补变化影响的验证；遇到反例修正原因与适用范围，不把项目数字或成功当作通用保证。
 
 ## 按问题组织专业能力
 
 | 当前需要 | 判断与读取入口 |
 | --- | --- |
-| 研究想法、比较机制与外观、选择建模路线 | [方案取舍](references/design-tradeoffs.md)、[参考研究](references/reference-research.md)。现有资料够用就停；本地有获准能力时自主研究，Dot不是前提 |
-| 原创、逆向或局部改模、接口和装配 | [参数与功能基准](references/geometry-validation.md#参数源与功能基准)、[几何与装配检查](references/geometry-validation.md)。按问题选CAD/OpenSCAD等，不为换工具迁移已好用的模型 |
+| 研究想法、比较机制与外观、选择建模路线 | [设计依据与方案取舍](references/design-tradeoffs.md#从使用动作建立设计依据)、[参考研究](references/reference-research.md)。由使用目标选结构与可变关系；资料够用就停，本地有获准能力时自主研究，Dot不是前提 |
+| 原创、逆向或局部改模、接口和装配 | [参数与功能基准](references/geometry-validation.md#参数源与功能基准)、[几何与装配检查](references/geometry-validation.md)。新建常规功能件以OpenSCAD为基础路线；[选路与例外](references/tool-routing.md#建模基础路线)按已有源、形体和交付需求判断，不为换工具重建好用的模型 |
 | 草图、剖面、爆炸图、分析图、尺寸图、产品/场景图 | 按下节选择表达；[需求与图审](references/requirements-and-review.md#方案草图与爆炸图的完整性)、[工具导航](references/tool-routing.md)。视觉表达是核心，不全部转成工程图 |
-| 材料、设备、兼容与工艺条件 | [简短打印档案](references/user-printing-profile.md)只是可换背景；[材料与几何](references/geometry-validation.md#材料只提供建模条件)、[官方知识查证](references/reference-research.md#按问题查拓竹官方wiki)。核会影响当次决定的条件，不套旧参数 |
+| 材料、尺寸配合、设备与工艺条件 | [简短打印档案](references/user-printing-profile.md)只是可换背景；[材料与几何](references/geometry-validation.md#材料只提供建模条件)。尺寸偏差、装配过紧/松脱或换料时读[材料配合诊断](references/geometry-validation.md#材料配合与尺寸偏差)，补偿字段按[官方知识查证](references/reference-research.md#按问题查拓竹官方wiki)核实，不套旧参数 |
 | 朝向摆盘、分色、Z缝、支撑、切片与整套成本 | [切片与交付](references/slicing-and-delivery.md)。联合判断结构、姿态、路径、速度/流量/温度/冷却和后处理；从最终有效工程与真实刀路验证，不逐参数追求局部最优 |
 | 后处理、安装、使用或打印失败 | [切片与交付](references/slicing-and-delivery.md)、[几何与装配检查](references/geometry-validation.md)，结合下方诊断方法回到相关设计或制造假设 |
 | 标准件、模块接口、其他制造与输出 | [工具导航](references/tool-routing.md)、[常用结构卡](references/common-structures.md)、[模块体系](references/modular-systems.md)。按相关标题取用；现成工具不是能力上限 |
@@ -48,7 +48,7 @@ metadata:
 - 支持制造的尺寸图来自真实几何；最终模型图与核查后的实体/网格对应。产品图、场景图或AI概念图说明真实来源，不冒充实拍或精确几何。
 - 实际打开导出图检查可读性和本轮问题是否讲清。复杂对比或明确要求HTML时按需读取当前已发现的`answer-me-with-html`，日常进度用文字。
 
-新方案或关键结构/外形变化先快审所需方向；具体几何确认后按范围改模，意向认可不扩成未经审阅的细节批准。用户已给出明确方案或跳过某项审核则沿用，不反复求同一确认。建模后独立读取最终实体/网格，按实际改动检查拓扑、修改域、余厚、接口与完整装拆路径；渲染漂亮不代替这些检查。
+新方案或关键结构/外形变化先快审所需方向；具体几何确认后按范围改模，意向认可不扩成未经审阅的细节批准。用户已给出明确方案或跳过某项审核则沿用，不反复求同一确认。建模后独立读取最终实体/网格，按实际改动检查拓扑、修改域、余厚、接口与完整装拆路径；[范围合规与意图符合](references/geometry-validation.md#与基线对比修改域)分别判断，临界数值须有相应精度证据，渲染漂亮不代替检查。
 
 ## 遇到问题怎样推进
 
@@ -73,4 +73,4 @@ metadata:
 
 本地文件更新不等于其他会话已加载、云端同步或后台监听；不新增常驻机制。共享文件写入前重读并合并本次内容，保留并行成果。需要历史依据时再读[会话来源](references/session-sources.md)、[项目结构库](references/project-patterns.md)、[B-RAIL案例](references/b-rail-case.md)或当前项目的收尾记录。
 
-公开版1.4.0在[独立仓库](https://github.com/Loveacup/3d-print-modeling)维护，技能自身反馈见[Issues](https://github.com/Loveacup/3d-print-modeling/issues)；内容边界与来源见[发布说明](references/publication-notes.md)。本包不包含所提专业技能、私人记录或运行环境；缺能力时查[配套上游安装目录](references/upstream-skills.md)，按需选择，不自动安装或部署。
+公开版1.5.0在[独立仓库](https://github.com/Loveacup/3d-print-modeling)维护，技能自身反馈见[Issues](https://github.com/Loveacup/3d-print-modeling/issues)；内容边界与来源见[发布说明](references/publication-notes.md)。本包不包含所提专业技能、私人记录或运行环境；缺能力时查[配套上游安装目录](references/upstream-skills.md)，按需选择，不自动安装或部署。
