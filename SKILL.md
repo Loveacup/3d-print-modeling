@@ -2,7 +2,7 @@
 name: 3d-print-modeling
 description: "理解诉求并推进完整3D打印项目：研究设计、建模、视觉表达、制造优化与实物迭代；连接专业技能和项目管理，按需用Jev辅助路线与参数取舍，每次使用回收问题和经验。"
 metadata:
-  version: "1.5.1"
+  version: "1.6.0"
   repository: "https://github.com/Loveacup/3d-print-modeling"
   issue_tracker: "https://github.com/Loveacup/3d-print-modeling/issues"
 ---
@@ -26,7 +26,7 @@ metadata:
 | 当前需要 | 判断与读取入口 |
 | --- | --- |
 | 研究想法、比较机制与外观、选择建模路线 | [设计依据与方案取舍](references/design-tradeoffs.md#从使用动作建立设计依据)、[参考研究](references/reference-research.md)。由使用目标选结构与可变关系；资料够用就停，本地有获准能力时自主研究，Dot不是前提 |
-| 原创、逆向或局部改模、接口和装配 | [参数与功能基准](references/geometry-validation.md#参数源与功能基准)、[几何与装配检查](references/geometry-validation.md)。新建常规功能件以OpenSCAD为基础路线；[选路与例外](references/tool-routing.md#建模基础路线)按已有源、形体和交付需求判断，不为换工具重建好用的模型 |
+| 原创、逆向或局部改模、接口和装配 | [参数与功能基准](references/geometry-validation.md#参数源与功能基准)、[几何与装配检查](references/geometry-validation.md)。按已有源、形体、编辑和交付需求选择建模能力；新项目的重要路线取舍给出建议并询问用户，具体见[建模路线选择](references/tool-routing.md#建模基础路线)，不为换工具重建好用的模型 |
 | 草图、剖面、爆炸图、分析图、尺寸图、产品/场景图 | 按下节选择表达；[需求与图审](references/requirements-and-review.md#方案草图与爆炸图的完整性)、[工具导航](references/tool-routing.md)。视觉表达是核心，不全部转成工程图 |
 | 材料、尺寸配合、设备与工艺条件 | [简短打印档案](references/user-printing-profile.md)只是可换背景；[材料与几何](references/geometry-validation.md#材料只提供建模条件)。尺寸偏差、装配过紧/松脱或换料时读[材料配合诊断](references/geometry-validation.md#材料配合与尺寸偏差)，补偿字段按[官方知识查证](references/reference-research.md#按问题查拓竹官方wiki)核实，不套旧参数 |
 | 朝向摆盘、分色、Z缝、支撑、切片与整套成本 | [切片与交付](references/slicing-and-delivery.md)。联合判断结构、姿态、路径、速度/流量/温度/冷却和后处理；从最终有效工程与真实刀路验证，不逐参数追求局部最优 |
@@ -75,4 +75,4 @@ metadata:
 
 本地文件更新不等于其他会话已加载、云端同步或后台监听；不新增常驻机制。共享文件写入前重读并合并本次内容，保留并行成果。需要历史依据时再读[会话来源](references/session-sources.md)、[项目结构库](references/project-patterns.md)、[B-RAIL案例](references/b-rail-case.md)或当前项目的收尾记录。
 
-公开版1.5.1在[独立仓库](https://github.com/Loveacup/3d-print-modeling)维护，技能自身反馈见[Issues](https://github.com/Loveacup/3d-print-modeling/issues)；内容边界与来源见[发布说明](references/publication-notes.md)。本包不包含所提专业技能、私人记录或运行环境；缺能力时查[配套上游安装目录](references/upstream-skills.md)，按需选择，不自动安装或部署。
+公开版1.6.0在[独立仓库](https://github.com/Loveacup/3d-print-modeling)维护，技能自身反馈见[Issues](https://github.com/Loveacup/3d-print-modeling/issues)；内容边界与来源见[发布说明](references/publication-notes.md)。本包不包含所提专业技能、私人记录或运行环境；缺能力时查[配套上游安装目录](references/upstream-skills.md)，按需选择，不自动安装或部署。

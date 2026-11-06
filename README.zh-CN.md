@@ -34,7 +34,7 @@ pwd
 test -f SKILL.md && test -f 'templates/核心需求.md' && printf 'Skill files found\n'
 ```
 
-仓库根目录就是技能包；保留 `SKILL.md` 同级的 `references/`、`templates/` 和 `agents/`。两份入口文件存在时，检查命令会输出 `Skill files found`；这不验证客户端发现或建模工具。克隆获取仓库当前默认分支；本 README 介绍的是 **1.4.0**。
+仓库根目录就是技能包；保留 `SKILL.md` 同级的 `references/`、`templates/` 和 `agents/`。两份入口文件存在时，检查命令会输出 `Skill files found`；这不验证客户端发现或建模工具。克隆获取仓库当前默认分支；本 README 介绍的是 **1.6.0**。
 
 在此目录打开 Agent，或把 `pwd` 输出的绝对目录交给它，然后粘贴：
 
@@ -68,9 +68,11 @@ test -f SKILL.md && test -f 'templates/核心需求.md' && printf 'Skill files f
 
 ### 按问题连接专业工具
 
-用[工具导航](references/tool-routing.md)选择路线，再用 [16 项配套上游目录](references/upstream-skills.md)找到真实来源、技能路径、版本依据与许可注意项。这两份指南目前为中文。
+用[工具导航](references/tool-routing.md)选择路线，再用 [20 项配套上游目录](references/upstream-skills.md)找到真实来源、技能路径、版本依据与许可注意项。这两份指南目前为中文。
 
-目录覆盖 CAD、OpenSCAD、工程图、DXF、可打印性分析、切片、标准件、其他制造工艺与机器人输出。**它是按需导航，不是捆绑工具链或自动安装器。** 只选任务所需能力，使用前核其触发条件、依赖与权限。Helio 等外部服务只是可选模块，不是整个项目的中心。
+按已有源、编辑需求与交付目标选路，不设统一默认引擎。约束草图、可编辑特征历史、外壳/圆角与STEP可优先考虑SolidCraft；规则功能件、脚本重建和`.scad`交付可优先考虑OpenSCAD。保留有效原生源和用户指定工具；重要新路线先说明取舍、推荐再询问，用户授权自主选择时直接推进，小改不反复求批。
+
+目录覆盖SolidCraft建模、修改、检查与机构四项技能，以及 CAD、OpenSCAD、工程图、DXF、可打印性分析、切片、标准件、其他制造工艺与机器人输出。**它是按需导航，不是捆绑工具链或自动安装器。** 只选任务所需能力，使用前核其触发条件、依赖与权限。SolidCraft技能及运行时须另从已核上游取得，本包不含本机launcher或兼容补丁。Helio 等外部服务只是可选模块，不是整个项目的中心。
 
 **当前环境已有 Jev 时**，Agent 可主动按需用它比较有限候选：先试哪条建模路线、哪组参数或切片方案、下一项诊断检查是否更有价值。主模型创造和改进候选，Jev 提供第二意见，几何、真实刀路与实物检查决定结果是否成立。规则与计算已能决定的事直接推进。Jev 不是必需依赖，本包不宣称未经实测的提速或节费收益。
 
@@ -124,7 +126,7 @@ test -f SKILL.md && test -f 'templates/核心需求.md' && printf 'Skill files f
 | 研究与方案选择 | [参考研究](references/reference-research.md) · [方案取舍](references/design-tradeoffs.md) |
 | 几何与制造 | [几何验证](references/geometry-validation.md) · [切片与交付](references/slicing-and-delivery.md) |
 | 可复用机制与接口 | [常用结构](references/common-structures.md) · [模块体系](references/modular-systems.md) · [美学案例](references/aesthetic-cases.md) |
-| 工具与补齐能力 | [工具导航](references/tool-routing.md) · [16 项配套上游](references/upstream-skills.md) |
+| 工具与补齐能力 | [工具导航](references/tool-routing.md) · [20 项配套上游](references/upstream-skills.md) |
 | 协作与经验积累 | [项目组织](references/project-organization.md) · [每次使用收尾](references/closeout.md) |
 | 公开包范围与来源 | [发布说明](references/publication-notes.md) |
 

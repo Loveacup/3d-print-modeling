@@ -1,6 +1,6 @@
 # 配套技能上游与按需安装
 
-本页连接本主技能使用的专业能力与其真实公开上游，供其他使用者按任务安装。**不捆绑第三方代码，不自动安装，不把来源核查当作运行验证。** 2026-10-27按下列固定提交读取上游README、技能入口及许可；安装时还要核上游当前说明、目标客户端和本机条件。
+本页连接本主技能使用的专业能力与其真实公开上游，供其他使用者按任务安装。**不捆绑第三方代码，不自动安装，不把来源核查当作运行验证。** 原16项于2026-10-27按固定提交核查；SolidCraft四项于2026-11-06补核上游README、技能入口与许可。安装时还要核上游当前说明、目标客户端和本机条件。
 
 ## 先按任务选，再决定安装
 
@@ -8,7 +8,7 @@
 
 仓库链接用于找上游，**固定提交链接用于定位本文依据**，不是“永远锁旧版”的建议。上游默认安装命令可能跟随当前分支或标签，不等于安装下列固定提交；需要复现时检出明确提交，按上游说明放置对应技能目录及其必要配套文件，并记录实际版本。新版本先在隔离环境检查兼容性，不静默覆盖已有技能或共享依赖。
 
-## 16个专业技能
+## 20个专业技能
 
 | 本项目识别名 | 什么时候需要 | 上游仓库与固定技能目录 | 许可与依赖提示 |
 | --- | --- | --- | --- |
@@ -28,6 +28,10 @@
 | `bambu-studio-ai` | 本地Bambu预设查询与CLI切片等 | [heyixuan2/bambu-studio-ai](https://github.com/heyixuan2/bambu-studio-ai) · [固定目录](https://github.com/heyixuan2/bambu-studio-ai/tree/cdc26987d5bf1052a055d9403e3cb9630959dd08) | 自有代码MIT，部分派生数据AGPL-3.0；Python 3.10+、Bambu Studio |
 | `flowful-cad` | 指定Flowful CadQuery/GridfinityBin等 | [flowful-ai/cad-skill](https://github.com/flowful-ai/cad-skill) · [固定目录](https://github.com/flowful-ai/cad-skill/tree/fe4215970d39f388ff1afc411fac49a9c5f79756) | 上游名parametric-3d-printing；PolyForm Noncommercial 1.0.0；Python 3.10–3.12及依赖 |
 | `openscad` | OpenSCAD参数化源、导出与STL重建 | [andreahaku/openscad_claude_skill](https://github.com/andreahaku/openscad_claude_skill) · [固定目录](https://github.com/andreahaku/openscad_claude_skill/tree/3483e23dd4c5b41144ba69dac13d7b56ecdf0c0c) | README声明MIT，根目录缺独立LICENSE正文；OpenSCAD CLI/Bash，重建另需Python包 |
+| `solidcraft-modeling` | 参数化实体、草图约束、可编辑特征历史、外壳/圆角或STEP | [tangency-labs/solidcraft](https://github.com/tangency-labs/solidcraft) · [固定目录](https://github.com/tangency-labs/solidcraft/tree/c4e1a3a756f639b659e0bc899201097009df50b6/skills/solidcraft-modeling) | MIT OR Apache-2.0；需SolidCraft及匹配的MCP/CLI入口，保留reference.md |
+| `solidcraft-editing` | 修改已有SolidCraft原生设计及参数/特征 | [tangency-labs/solidcraft](https://github.com/tangency-labs/solidcraft) · [固定目录](https://github.com/tangency-labs/solidcraft/tree/c4e1a3a756f639b659e0bc899201097009df50b6/skills/solidcraft-editing) | 同上；交叉引用modeling的reference.md，不能只取本文件 |
+| `solidcraft-checking` | 配合新建/修改检查参数范围、几何与STEP差异 | [tangency-labs/solidcraft](https://github.com/tangency-labs/solidcraft) · [固定目录](https://github.com/tangency-labs/solidcraft/tree/c4e1a3a756f639b659e0bc899201097009df50b6/skills/solidcraft-checking) | 同上；保留scripts，部分检查另需Python、pytest、build123d |
+| `solidcraft-mechanisms` | 组件、关节、运动链与机构装配 | [tangency-labs/solidcraft](https://github.com/tangency-labs/solidcraft) · [固定目录](https://github.com/tangency-labs/solidcraft/tree/c4e1a3a756f639b659e0bc899201097009df50b6/skills/solidcraft-mechanisms) | 同上；保留reference.md，零件建模另读modeling |
 
 固定目录都包含 `SKILL.md`；路径为 `skills/<技能名>` 的项目不把整个仓库根目录误当单个技能。`flowful-cad` 是本地识别别名，上游实际技能名为 **`parametric-3d-printing`**；按实际发现的名字和入口读取，不必为了名字一致改写上游或假定两份技能已安装。
 
@@ -60,9 +64,17 @@
 
 固定README写有 `License: MIT`，但该提交根目录没有独立LICENSE正文；本页准确保留这一证据状态，复制或再分发前向上游确认完整许可与署名要求，不能从公开可读推导无限制授权。
 
+### 六：SolidCraft
+
+[固定README](https://github.com/tangency-labs/solidcraft/blob/c4e1a3a756f639b659e0bc899201097009df50b6/README.md) · [技能目录](https://github.com/tangency-labs/solidcraft/tree/c4e1a3a756f639b659e0bc899201097009df50b6/skills) · [MIT](https://github.com/tangency-labs/solidcraft/blob/c4e1a3a756f639b659e0bc899201097009df50b6/LICENSE-MIT) · [Apache-2.0](https://github.com/tangency-labs/solidcraft/blob/c4e1a3a756f639b659e0bc899201097009df50b6/LICENSE-APACHE) · [NOTICE](https://github.com/tangency-labs/solidcraft/blob/c4e1a3a756f639b659e0bc899201097009df50b6/NOTICE)。上游声明MIT OR Apache-2.0，第三方材料保留各自条款；本包只提供导航，不复制这四项技能或其本地适配。
+
+按上表固定目录取得当前所需技能，保留其引用的reference.md、scripts和跨技能依赖，按目标客户端的发现机制放置；不要把整个SolidCraft仓库根目录当作单个技能，也不默认安装开发/贡献类技能。运行时从上游README的下载/构建入口取得，按所选平台核版本、来源及完整性。技能安装、CLI可执行、MCP接入与本次操作授权分别验证。
+
+上游建模/编辑入口主要面向MCP，checking另提供`solidcraft-cli run`脚本工作流；按上游[MCP说明](https://github.com/tangency-labs/solidcraft/blob/c4e1a3a756f639b659e0bc899201097009df50b6/docs/mcp.md)与[脚本说明](https://github.com/tangency-labs/solidcraft/blob/c4e1a3a756f639b659e0bc899201097009df50b6/docs/scripts.md)选择，不把MCP语法直接冒充CLI参数。固定checking入口注明针对0.21.0，不能据此保证新运行时兼容；升级后按所需功能重核命令契约和检查脚本。这里未分发本机launcher、运行时、兼容补丁或测试环境，也不宣称下载主技能即可运行SolidCraft。
+
 ## 项目管理与Jev：另外核实当前入口
 
-`linear-flow`、`linear-cli`、`jev-sidekick` 和 `jev_evaluate` 是可选协作入口，不属于上表16个项目专业技能的捆绑内容。
+`linear-flow`、`linear-cli`、`jev-sidekick` 和 `jev_evaluate` 是可选协作入口，不属于上表20个项目专业技能的捆绑内容。
 
 - `linear-flow`：本次未能公开访问候选 `Loveacup/linear-flow`（404不能区分不存在或私有），因此不提供虚构下载地址。已具备它的环境可读取；没有它仍可按[项目管理与本地后备](project-organization.md#项目管理接入与本地后备)推进，不因此安装未知同名包。
 - Linear操作可参考已知公开的 [schpet/linear-cli](https://github.com/schpet/linear-cli) 及 [Linear官方API](https://linear.app/developers/graphql)。操作工具与协作方法不是同一个skill；安装命令、认证及写入范围由所选入口核验，本次不代安装或提供凭据。

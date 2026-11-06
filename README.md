@@ -34,7 +34,7 @@ pwd
 test -f SKILL.md && test -f 'templates/核心需求.md' && printf 'Skill files found\n'
 ```
 
-The repository root is the skill package; keep its `references/`, `templates/` and `agents/` alongside `SKILL.md`. The check prints `Skill files found` when those two entry files are present; it does not test agent discovery or modeling tools. The clone follows the repository's current default branch; this README describes **1.4.0**.
+The repository root is the skill package; keep its `references/`, `templates/` and `agents/` alongside `SKILL.md`. The check prints `Skill files found` when those two entry files are present; it does not test agent discovery or modeling tools. The clone follows the repository's current default branch; this README describes **1.6.0**.
 
 Open your agent in this directory—or give it the absolute directory printed by `pwd`—and paste:
 
@@ -69,9 +69,11 @@ This is a capability map, not a checklist or a fixed pipeline. A small change ca
 
 ### Specialist tools, when the problem calls for them
 
-Use the [tool-routing guide](references/tool-routing.md) to choose a route, and the [16-entry upstream directory](references/upstream-skills.md) to find actual sources, skill paths, version references and license notes. Both guides are currently in Chinese.
+Use the [tool-routing guide](references/tool-routing.md) to choose a route, and the [20-entry upstream directory](references/upstream-skills.md) to find actual sources, skill paths, version references and license notes. Both guides are currently in Chinese.
 
-The directory covers CAD, OpenSCAD, drawings, DXF, printability analysis, slicing, standard parts, other manufacturing processes and robotics outputs. **It is navigation, not a bundled toolchain or an automatic installer.** Select only what you need; check the specialist's own triggers, dependencies and permissions before use. Optional services such as Helio are modules, not the center of the project.
+Choose by the existing source, editing needs and delivery target, not one default engine. Consider SolidCraft for constrained sketches, editable feature history, shells/fillets and STEP; consider OpenSCAD for regular functional parts, scripted rebuilds and `.scad` delivery. Preserve working native sources and explicit tool choices. For a consequential new route, explain the tradeoff, recommend an option and ask first; proceed autonomously when the user delegates the choice, without repeatedly asking about small edits.
+
+The directory covers SolidCraft's modeling, editing, checking and mechanisms skills, CAD, OpenSCAD, drawings, DXF, printability analysis, slicing, standard parts, other manufacturing processes and robotics outputs. **It is navigation, not a bundled toolchain or an automatic installer.** Select only what you need; check the specialist's own triggers, dependencies and permissions before use. SolidCraft skills and runtime must be obtained from the verified upstream separately; no local launcher or compatibility patch is included. Optional services such as Helio are modules, not the center of the project.
 
 When **Jev is already available**, the agent can proactively use it for bounded comparisons: which modeling route to try, which parameter or slicing candidate to test, or which diagnostic check has the most value. The main agent creates and improves candidates; Jev offers a second opinion; geometry, actual toolpaths and physical checks establish the result. Clear rules and calculations go directly to execution. Jev is optional, and this package makes no measured speed or cost-saving claim.
 
@@ -129,7 +131,7 @@ The linked skill, references and template are in Chinese; file names and tool id
 | Research and design choices | [Reference research](references/reference-research.md) · [Design tradeoffs](references/design-tradeoffs.md) |
 | Geometry and manufacturing | [Geometry validation](references/geometry-validation.md) · [Slicing and delivery](references/slicing-and-delivery.md) |
 | Reusable mechanisms and interfaces | [Common structures](references/common-structures.md) · [Modular systems](references/modular-systems.md) · [Aesthetic cases](references/aesthetic-cases.md) |
-| Tools and additional capabilities | [Tool routing](references/tool-routing.md) · [16 upstream skill entries](references/upstream-skills.md) |
+| Tools and additional capabilities | [Tool routing](references/tool-routing.md) · [20 upstream skill entries](references/upstream-skills.md) |
 | Coordination and learning | [Project organization](references/project-organization.md) · [Closeout](references/closeout.md) |
 | Public-package scope and sources | [Publication notes](references/publication-notes.md) |
 
