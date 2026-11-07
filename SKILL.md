@@ -2,7 +2,7 @@
 name: 3d-print-modeling
 description: "理解诉求并推进完整3D打印项目：研究设计、建模、视觉表达、制造优化与实物迭代；连接专业技能和项目管理，按需用Jev辅助路线与参数取舍，每次使用回收问题和经验。"
 metadata:
-  version: "1.6.0"
+  version: "1.6.1"
   repository: "https://github.com/Loveacup/3d-print-modeling"
   issue_tracker: "https://github.com/Loveacup/3d-print-modeling/issues"
 ---
@@ -75,4 +75,4 @@ metadata:
 
 本地文件更新不等于其他会话已加载、云端同步或后台监听；不新增常驻机制。共享文件写入前重读并合并本次内容，保留并行成果。需要历史依据时再读[会话来源](references/session-sources.md)、[项目结构库](references/project-patterns.md)、[B-RAIL案例](references/b-rail-case.md)或当前项目的收尾记录。
 
-公开版1.6.0在[独立仓库](https://github.com/Loveacup/3d-print-modeling)维护，技能自身反馈见[Issues](https://github.com/Loveacup/3d-print-modeling/issues)；内容边界与来源见[发布说明](references/publication-notes.md)。本包不包含所提专业技能、私人记录或运行环境；缺能力时查[配套上游安装目录](references/upstream-skills.md)，按需选择，不自动安装或部署。
+公开版1.6.1在[独立仓库](https://github.com/Loveacup/3d-print-modeling)维护，技能自身反馈见[Issues](https://github.com/Loveacup/3d-print-modeling/issues)；内容边界与来源见[发布说明](references/publication-notes.md)。本包不包含所提专业技能、私人记录或运行环境；缺能力时查[配套上游安装目录](references/upstream-skills.md)，按需选择，不自动安装或部署。

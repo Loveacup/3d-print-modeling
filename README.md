@@ -34,7 +34,7 @@ pwd
 test -f SKILL.md && test -f 'templates/核心需求.md' && printf 'Skill files found\n'
 ```
 
-The repository root is the skill package; keep its `references/`, `templates/` and `agents/` alongside `SKILL.md`. The check prints `Skill files found` when those two entry files are present; it does not test agent discovery or modeling tools. The clone follows the repository's current default branch; this README describes **1.6.0**.
+The repository root is the skill package; keep its `references/`, `templates/` and `agents/` alongside `SKILL.md`. The check prints `Skill files found` when those two entry files are present; it does not test agent discovery or modeling tools. The clone follows the repository's current default branch; this README describes **1.6.1**.
 
 Open your agent in this directory—or give it the absolute directory printed by `pwd`—and paste:
 

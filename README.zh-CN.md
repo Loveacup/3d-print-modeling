@@ -34,7 +34,7 @@ pwd
 test -f SKILL.md && test -f 'templates/核心需求.md' && printf 'Skill files found\n'
 ```
 
-仓库根目录就是技能包；保留 `SKILL.md` 同级的 `references/`、`templates/` 和 `agents/`。两份入口文件存在时，检查命令会输出 `Skill files found`；这不验证客户端发现或建模工具。克隆获取仓库当前默认分支；本 README 介绍的是 **1.6.0**。
+仓库根目录就是技能包；保留 `SKILL.md` 同级的 `references/`、`templates/` 和 `agents/`。两份入口文件存在时，检查命令会输出 `Skill files found`；这不验证客户端发现或建模工具。克隆获取仓库当前默认分支；本 README 介绍的是 **1.6.1**。
 
 在此目录打开 Agent，或把 `pwd` 输出的绝对目录交给它，然后粘贴：
 
