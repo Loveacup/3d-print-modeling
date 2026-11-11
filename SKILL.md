@@ -2,7 +2,7 @@
 name: 3d-print-modeling
 description: "理解诉求并推进完整3D打印项目：研究设计、建模、视觉表达、制造优化与实物迭代；连接专业技能和项目管理，按需用Jev辅助路线与参数取舍，每次使用回收问题和经验。"
 metadata:
-  version: "1.7.0"
+  version: "1.8.0"
   repository: "https://github.com/Loveacup/3d-print-modeling"
   issue_tracker: "https://github.com/Loveacup/3d-print-modeling/issues"
 ---
@@ -44,7 +44,7 @@ metadata:
 
 用图和模型帮助人思考，而不是为流程凑图：
 
-- 探索形体、比例、颜色和使用动作，可先用意向草图或概念图；已有依据的小改不重画整套方案。
+- 探索形体、比例、颜色和使用动作，可先用意向草图或概念图；已有依据的小改不重画整套方案。用户作出影响后续实施的选择时，按[实质选图留档](references/requirements-and-review.md#实质选图留档)保留原话、候选实际身份、被选/未选及适用范围。
 - 解释零件分工、连接和装拆，用剖面、爆炸图、动作图或适合的表达；标清需要说明的空间与方向。
 - 分析受力、接触、打印姿态、悬空和缺陷，标明是示意判断还是实际量测/计算，不把颜色热图当成仿真证明。
 - 支持制造的尺寸图来自真实几何；最终模型图与核查后的实体/网格对应。产品图、场景图或AI概念图说明真实来源，不冒充实拍或精确几何。
@@ -64,7 +64,7 @@ metadata:
 
 交付先区分参数源、模型交换文件、可编辑切片工程与预切片结果，只承诺实际内容。补格式复用冻结几何并独立核转换结果；涉及工艺/切片工程交付或修改时，再核机料和有效设置，保存、重开、复切并查关键路径，详见[3MF交付类型](references/slicing-and-delivery.md#3mf交付类型与补格式)。几何、路径、GUI和实物证据分别记录，不以相同扩展名强制同一流程。
 
-正文、报告和配套附件统一留所属项目；跨项目参考与技能维护留工作区对应目录，**Obsidian知识库不保留正文副本或跳转占位**。整理、迁入、交接按[项目组织](references/project-organization.md)保全来源与版本，只更新负责的状态段落。
+正文、报告和配套附件统一留所属项目；交付/接续按需用[轻量交付身份清单](references/project-organization.md#轻量交付身份清单)关联选定源、参数、导出、交付和验证证据，字节匹配不代替来源或制造验证。跨项目参考与技能维护留工作区对应目录，**Obsidian知识库不保留正文副本或跳转占位**。整理、迁入、交接按[项目组织](references/project-organization.md)保全来源与版本，只更新负责的状态段落。
 
 **每次本次工作完成、暂停或交接，都按[收尾与知识循环](references/closeout.md)处理，不等整个项目完结：**
 问题查重后归集到已授权GitHub仓库；经验回写相关参考/案例并给下次读取入口；新证据纠正旧知识。无新增就简记，远端或本地写入受阻则保留待办与恢复定位。产品完成、反馈闭环完成和公开发布分别报告，不为写总结造规则。
@@ -75,4 +75,4 @@ metadata:
 
 本地文件更新不等于其他会话已加载、云端同步或后台监听；不新增常驻机制。共享文件写入前重读并合并本次内容，保留并行成果。需要历史依据时再读[会话来源](references/session-sources.md)、[项目结构库](references/project-patterns.md)、[B-RAIL案例](references/b-rail-case.md)或当前项目的收尾记录。
 
-公开版1.7.0在[独立仓库](https://github.com/Loveacup/3d-print-modeling)维护，技能自身反馈见[Issues](https://github.com/Loveacup/3d-print-modeling/issues)；内容边界与来源见[发布说明](references/publication-notes.md)。本包不包含所提专业技能、私人记录或运行环境；可选原生网格探针仅用Python标准库，缺专业能力时查[配套上游安装目录](references/upstream-skills.md)，不自动安装或部署。
+公开版1.8.0在[独立仓库](https://github.com/Loveacup/3d-print-modeling)维护，技能自身反馈见[Issues](https://github.com/Loveacup/3d-print-modeling/issues)；内容边界与来源见[发布说明](references/publication-notes.md)。本包不包含所提专业技能、私人记录或运行环境；可选原生网格探针与交付身份工具仅用Python标准库，缺专业能力时查[配套上游安装目录](references/upstream-skills.md)，不自动安装或部署。

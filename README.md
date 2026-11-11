@@ -12,12 +12,12 @@ English · [简体中文](README.zh-CN.md)
 
 </div>
 
-An open-ended **3D-printing project main skill** (`v1.7.0`) for AI agents and the people building physical objects with them. Instead of reducing a project to one-shot text-to-mesh generation or isolated slicer parameter tweaks, the main agent understands the real use case, researches mechanisms, designs, models, communicates visually and diagnoses physical or digital failures—bringing in specialist skills only when the problem calls for them.
+An open-ended **3D-printing project main skill** (`v1.8.0`) for AI agents and the people building physical objects with them. Instead of reducing a project to one-shot text-to-mesh generation or isolated slicer parameter tweaks, the main agent understands the real use case, researches mechanisms, designs, models, communicates visually and diagnoses physical or digital failures—bringing in specialist skills only when the problem calls for them.
 
 **Modeling and visual communication stay at the center.** Manufacturing constraints, toolpath evidence and physical print feedback inform the geometry from the start. Enter wherever your current problem lives: a rough idea, site photos with measurements, an existing CAD/STL/3MF file that needs targeted modification, or a printed part that does not fit or hold up.
 
 > **What this repository is—and is not:**
-> - **Included here:** The authoritative root skill package (`SKILL.md`, on-demand `references/` guides, `templates/核心需求.md`, `agents/openai.yaml` and original concept diagrams), plus an optional standard-library native-mesh audit and synthetic tests in `scripts/`.
+> - **Included here:** The authoritative root skill package (`SKILL.md`, on-demand `references/` guides, `templates/核心需求.md`, `agents/openai.yaml` and original concept diagrams), plus optional standard-library native-mesh and delivery-identity tools with synthetic tests in `scripts/`.
 > - **Not included here:** No bundled CAD engine, slicer binary, third-party skill code, automatic installer, printer controller or pre-printed model library. Reading the skill requires only an AI agent that can read local Markdown files; generating or verifying CAD solids, meshes, drawings, `.3mf` projects or G-code requires the corresponding local tools.
 
 ![Conceptual capability map: human needs guide modeling and visual communication; research, manufacturing and evidence feed the design; lessons are applied and corrected on the next use.](docs/images/project-map.en.svg)
@@ -42,7 +42,7 @@ test -f SKILL.md && test -f 'templates/核心需求.md' && printf 'Skill files f
 
 The repository root is the complete skill package; keep `references/`, `templates/`, `agents/` and the optional `scripts/` alongside `SKILL.md`.
 - **Observable check:** The command prints the absolute package path followed by `Skill files found`, confirming the main entry file and core requirements template are present locally.
-- **What this check does not prove:** It does not register the skill globally in a client, install upstream CAD/slicer runtimes, or validate any geometry. The clone tracks the repository's default branch; this README describes **1.7.0**.
+- **What this check does not prove:** It does not register the skill globally in a client, install upstream CAD/slicer runtimes, or validate any geometry. The clone tracks the repository's default branch; this README describes **1.8.0**.
 
 ### 2. Run a zero-install concept trial with your agent
 
@@ -135,6 +135,12 @@ At the completion, pause or handoff of any bounded unit of work—not only at th
 
 This loop is executed deliberately by the agent during active work—never via background watchers or automatic uploads. See [closeout and the knowledge loop](references/closeout.md) (Chinese).
 
+### Optional: delivery identity and visual-choice records
+
+Use the [delivery identity guide](references/project-organization.md#轻量交付身份清单) to select exact source, parameter, export, delivery and evidence files. `scripts/delivery_identity.py capture` creates a new JSON snapshot without overwriting; `verify` reports matched, changed, missing or unverified identities without updating the baseline. Both require explicit `--root`, `--selection` and `--manifest` paths. Python 3 and its standard library are sufficient. Hashes and declared relationships do not establish provenance, geometry or manufacturing validity.
+
+For a consequential image choice, preserve the user’s actual words, candidate identities, selected/unselected/pending status and scope in existing project records; see [visual-choice records](references/requirements-and-review.md#实质选图留档). Private images and decisions remain in the product project, not this package.
+
 ### Optional: exact native-mesh audit (Python 3)
 
 For a deterministic STL-to-3MF export that should preserve triangulation, the package includes an independent paired audit. With your own STL and 3MF, from the repository root:
@@ -144,7 +150,7 @@ python scripts/audit_native_mesh.py --source part.stl --source-unit millimeter -
 python -B -m unittest discover -s scripts/tests -v
 ```
 
-The first command writes JSON to stdout and declares the source unit and selected native object. It compares oriented triangle multisets after finite-float parsing, allowing index/cyclic reordering but preserving winding and duplicate multiplicity; decimal conversion can round or underflow. It does **not** validate schema, role pairing, build transforms, general surface equivalence, slicing or printability. Optional file output refuses existing or input paths. Reports contain input paths and file hashes: review their sensitivity before sharing. The tests use temporary synthetic meshes, not a CAD engine or slicer; Python 3.12 was used for validation, and other Python versions have not been verified. See [geometry scope](references/geometry-validation.md#确定性导出的原生网格比对) and [release boundaries](references/publication-notes.md#原生网格探针与证据边界). Python is needed only for this optional tool, with no third-party dependencies.
+The first command writes JSON to stdout and declares the source unit and selected native object. It compares oriented triangle multisets after finite-float parsing, allowing index/cyclic reordering but preserving winding and duplicate multiplicity; decimal conversion can round or underflow. It does **not** validate schema, role pairing, build transforms, general surface equivalence, slicing or printability. Optional file output refuses existing or input paths. Reports contain input paths and file hashes: review their sensitivity before sharing. The tests use temporary synthetic meshes, not a CAD engine or slicer; Python 3.12 was used for the original mesh validation; the combined mesh and identity suite also passes on Python 3.9.6. See [geometry scope](references/geometry-validation.md#确定性导出的原生网格比对) and [release boundaries](references/publication-notes.md#原生网格探针与证据边界). Python is needed only for the optional tools, with no third-party dependencies.
 
 Model-only 3MF, editable slicing projects and pre-sliced output follow [different delivery checks](references/slicing-and-delivery.md#3mf交付类型与补格式); the extension alone does not imply machine presets or toolpaths.
 
@@ -164,7 +170,7 @@ All repository documentation below is in Chinese except `README.md`; file paths,
 | Adapt modular storage/mounting ecosystems or study form/partition cases | [Modular systems overview](references/modular-systems.md) ([Gridfinity](references/modular-systems/gridfinity.md) · [SKÅDIS](references/modular-systems/skadis.md) · [HSW](references/modular-systems/honeycomb.md) · [B-RAIL](references/modular-systems/b-rail.md) · [source-index.tsv](references/modular-systems/source-index.tsv)) · [B-RAIL thinning case](references/b-rail-case.md) · [Aesthetic cases](references/aesthetic-cases.md) |
 | Route to specialist skills, use Jev comparisons or check upstream installation | [Tool routing & Jev sidekick](references/tool-routing.md) · [20 upstream skill entries](references/upstream-skills.md) |
 | Organize project files, coordinate with Dot and run the closeout loop | [Project organization](references/project-organization.md) · [Dot-local collaboration](references/dot-local-collaboration.md) · [Closeout & knowledge loop](references/closeout.md) · [Session sources & evidence tiers](references/session-sources.md) |
-| Check public package scope, v1.1.0–v1.7.0 changes and literature/license citations | [Publication notes](references/publication-notes.md) |
+| Check public package scope, v1.1.0–v1.8.0 changes and literature/license citations | [Publication notes](references/publication-notes.md) |
 
 <a id="evidence"></a>
 ## Evidence, feedback and reuse
