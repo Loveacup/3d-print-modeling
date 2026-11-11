@@ -12,12 +12,12 @@
 
 </div>
 
-这是面向 AI Agent 与创作者的开放式 **3D 打印项目主技能**（当前版本 `v1.6.1`）。它不把 3D 打印项目简化成一次性“文字生成网格”或孤立的切片参数调整，而是让主模型真正理解人的使用目标，亲自研究机制、设计方案、建模、视觉表达并诊断数字或实物问题；只在任务确实需要时按需连接专业 skills，把各环节接成完整、可交付的项目。
+这是面向 AI Agent 与创作者的开放式 **3D 打印项目主技能**（当前版本 `v1.7.0`）。它不把 3D 打印项目简化成一次性“文字生成网格”或孤立的切片参数调整，而是让主模型真正理解人的使用目标，亲自研究机制、设计方案、建模、视觉表达并诊断数字或实物问题；只在任务确实需要时按需连接专业 skills，把各环节接成完整、可交付的项目。
 
 **建模与视觉表达始终处于中心。** 制造条件、真实刀路与实物反馈从一开始就参与设计判断。你可以从一个模糊想法、带尺现场照片、需要局部改动的现有 CAD/STL/3MF 文件，或者已经打印出来但配合不好、容易损坏的零件切入，直接从当前最关键的未知开始工作。
 
 > **本仓库是什么、不是什么：**
-> - **本仓库包含：** 位于仓库根目录的权威主技能包（`SKILL.md`、按需读取的 `references/` 参考指南、`templates/核心需求.md`、`agents/openai.yaml` 及原创概念图）。
+> - **本仓库包含：** 根目录主技能包（`SKILL.md`、按需参考、核心需求模板、`agents/openai.yaml`及原创概念图），以及`scripts/`中的可选标准库原生网格审计与合成测试。
 > - **本仓库不包含：** 不捆绑 CAD 引擎、切片器二进制程序、第三方配套 skill 源码、自动安装器、打印机控制器或现成打印模型库。阅读并应用主技能方法只需能读取本地 Markdown 的 AI Agent；真正生成或验证 CAD 实体、网格、工程图、`.3mf` 切片工程或 G-code 时，再调用本机相应工具。
 
 ![概念能力图：人的诉求指引建模与视觉表达；研究、制造和证据反馈到设计；经验在下次使用中应用、验证与纠正。](docs/images/project-map.zh-CN.svg)
@@ -40,9 +40,9 @@ pwd
 test -f SKILL.md && test -f 'templates/核心需求.md' && printf 'Skill files found\n'
 ```
 
-仓库根目录就是完整技能包；请保留 `SKILL.md` 同级的 `references/`、`templates/` 和 `agents/`。
+仓库根目录就是完整技能包；请保留 `SKILL.md` 同级的 `references/`、`templates/`、`agents/`及可选`scripts/`。
 - **可观察的成功判据：** 命令会打印当前技能包的绝对路径，并在两份入口文件存在时输出 `Skill files found`。
-- **该检查不证明什么：** 它不测试客户端全局技能注册、不安装上游 CAD／切片运行环境，也不验证任何模型几何。克隆默认跟随仓库当前主分支；本 README 对应 **1.6.1**。
+- **该检查不证明什么：** 它不测试客户端全局技能注册、不安装上游 CAD／切片运行环境，也不验证任何模型几何。克隆默认跟随仓库当前主分支；本 README 对应 **1.7.0**。
 
 ### 2. 免安装跑通第一次概念梳理
 
@@ -130,6 +130,19 @@ test -f SKILL.md && test -f 'templates/核心需求.md' && printf 'Skill files f
 
 这是 Agent 在工作过程中主动执行的闭环，不包含后台监听或自动上传。详见 [每次使用后的问题与知识循环](references/closeout.md)。
 
+### 可选：原生网格精确配对审计（Python 3）
+
+确定性STL转3MF且三角化应保持时，可从仓库根目录对自己的文件运行独立审计：
+
+```sh
+python scripts/audit_native_mesh.py --source part.stl --source-unit millimeter --project model.3mf --object-id 1
+python -B -m unittest discover -s scripts/tests -v
+```
+
+首条命令向stdout输出JSON，显式声明STL单位与目标原生对象。比较有限浮点解析后的有向三角面多重集合，允许编号/单面循环重排，保留绕向和重复次数；十进制转换可舍入/下溢。它**不检查**schema、角色配对、build变换、通用表面等价、切片或打印性。可选输出文件拒绝覆盖既有文件或输入路径。报告含输入路径和文件哈希，分享前须检查其敏感性。测试只使用临时合成网格，不运行CAD/切片器；已用Python 3.12验证，其他Python版本尚未验证。范围见[几何参考](references/geometry-validation.md#确定性导出的原生网格比对)与[发布边界](references/publication-notes.md#原生网格探针与证据边界)。仅运行此可选工具才需要Python，没有第三方依赖。
+
+模型3MF、可编辑切片工程与预切片结果采用[不同交付检查](references/slicing-and-delivery.md#3mf交付类型与补格式)，扩展名本身不代表含机料设置或刀路。
+
 <a id="guide"></a>
 ## 深入阅读
 
@@ -146,7 +159,7 @@ test -f SKILL.md && test -f 'templates/核心需求.md' && printf 'Skill files f
 | 模块化收纳／挂载接口复用、导轨减薄保护与造型分区案例 | [模块化收纳接口总览](references/modular-systems.md)（[Gridfinity](references/modular-systems/gridfinity.md) · [SKÅDIS](references/modular-systems/skadis.md) · [HSW](references/modular-systems/honeycomb.md) · [B-RAIL](references/modular-systems/b-rail.md) · [来源索引](references/modular-systems/source-index.tsv)）· [B-RAIL 减薄案例](references/b-rail-case.md) · [按需造型与分区案例](references/aesthetic-cases.md) |
 | 建模路线选择、专业技能衔接、Jev 副手与 20 项上游按需安装 | [按任务连接专业能力](references/tool-routing.md) · [20 项配套技能上游目录](references/upstream-skills.md) |
 | 项目文件组织、Dot 协同与每次使用后的问题／知识闭环 | [项目管理、文档与接续](references/project-organization.md) · [Dot 与本地执行会话协作](references/dot-local-collaboration.md) · [每次使用收尾与知识循环](references/closeout.md) · [来源记录与证据分层](references/session-sources.md) |
-| 公开包范围、v1.1.0–v1.6.1 演进记录及一手文献／源码／许可依据 | [公开发布范围 · 1.6.1](references/publication-notes.md) |
+| 公开包范围、v1.1.0–v1.7.0 演进记录及一手文献／源码／许可依据 | [公开发布范围 · 1.7.0](references/publication-notes.md) |
 
 <a id="evidence"></a>
 ## 证据、反馈与复用

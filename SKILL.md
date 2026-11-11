@@ -2,7 +2,7 @@
 name: 3d-print-modeling
 description: "理解诉求并推进完整3D打印项目：研究设计、建模、视觉表达、制造优化与实物迭代；连接专业技能和项目管理，按需用Jev辅助路线与参数取舍，每次使用回收问题和经验。"
 metadata:
-  version: "1.6.1"
+  version: "1.7.0"
   repository: "https://github.com/Loveacup/3d-print-modeling"
   issue_tracker: "https://github.com/Loveacup/3d-print-modeling/issues"
 ---
@@ -15,9 +15,9 @@ metadata:
 
 ## 接手与推进
 
-- **先理解人，再选择工具。** 接续从当前项目README或状态文档定位任务，只读相关摘要与下一步。每轮方案、图、模型、装配、切片或范围调整前实际读取最新独立`核心需求.md`；不存在则依据已确认信息建立。按[需求与审核](references/requirements-and-review.md)先核整套用途、空间利用与排除项，再选模型和工艺。只问会改变当前决定的未知；已有确认与用户明确跳过审核/试片的范围沿用。
+- **先理解人，再选择工具。** 从当前项目README或状态文档定位任务。每轮具有独立目标的实质方案、几何、工艺或范围调整开始，实际读取最新独立`核心需求.md`；同一确认版本内的连续实现/修复可沿用本轮已读内容，用户新指令、协作者写入、阶段或文档变化时刷新。不存在则据确认建立。按[需求与审核](references/requirements-and-review.md)核整套用途、空间利用与排除项，只问会改变决定的未知，已有确认和跳过范围沿用。
 - **管理到可交付结果。** 按[项目组织](references/project-organization.md#项目管理接入与本地后备)接续适用的软件和skill（如Linear与`linear-flow`）；没有可用接入则在项目内建立适合规模的任务与决定记录。掌握成果、责任、依赖、阻塞、验收和下一步，不让用户替agent找项目、搬消息或催收结果。阶段与任务用于推进，不用于增加手续。
-- **以关键未知安排工作。** 优先验证会推翻后续工作的假设；已获准、互不冲突的研究、检查和准备可并行，同一模型/共享文件协调写入。普通技术细节自主处理，用户意图、重大取舍或新增权限才需要确认。
+- **以关键未知安排工作。** 详细建模前理清主要实体的功能分工、装配/打印姿态与连接代价；需求或连接改变时重审旧结构。按[本轮变化选路](references/tool-routing.md#按改动选择工作量)，先验证会推翻后续工作的局部，再完成受影响交付。独立工作可并行，同一模型/共享文件协调写入；普通细节自主处理，用户意图、重大取舍或新权限才确认。
 - **接收证据并保全基线。** 现场照片、尺寸或标注按[现场资料落盘](references/requirements-and-review.md#现场资料收到即整理)当轮归档原件。原件、用户批准方案、当前有效分支与历史保持关联；不凭文件名猜最终版，不让参考或新工具悄悄改写用户的保留范围。
 - **先复用相关知识。** 按问题读取下方参考与已有案例，不加载全部历史。使用经验前核条件与证据，按[复用边界](references/closeout.md#下次读取应用与纠错)只补变化影响的验证；遇到反例修正原因与适用范围，不把项目数字或成功当作通用保证。
 
@@ -32,11 +32,11 @@ metadata:
 | 朝向摆盘、分色、Z缝、支撑、切片与整套成本 | [切片与交付](references/slicing-and-delivery.md)。联合判断结构、姿态、路径、速度/流量/温度/冷却和后处理；从最终有效工程与真实刀路验证，不逐参数追求局部最优 |
 | 后处理、安装、使用或打印失败 | [切片与交付](references/slicing-and-delivery.md)、[几何与装配检查](references/geometry-validation.md)，结合下方诊断方法回到相关设计或制造假设 |
 | 标准件、模块接口、其他制造与输出 | [工具导航](references/tool-routing.md)、[常用结构卡](references/common-structures.md)、[模块体系](references/modular-systems.md)。按相关标题取用；现成工具不是能力上限 |
-| 项目接续、文档、协作和经验循环 | [项目组织](references/project-organization.md)、用户安排协作时的[Dot协作](references/dot-local-collaboration.md)、[每次使用收尾](references/closeout.md) |
+| 项目接续、文件整理/清理、协作和经验循环 | [项目组织](references/project-organization.md)、用户安排协作时的[Dot协作](references/dot-local-collaboration.md)、[每次使用收尾](references/closeout.md) |
 
 需要专业技能时先读其入口，只提供当前目标、不可改范围、准确输入/版本、单位/坐标、预期结果与验收依据；回来检查它是否真正回答问题。安装记录、技能可发现、实际可运行和本次授权分别判断。工具选择与证据边界见[工具导航](references/tool-routing.md)，不会因本技能的开放定位而覆盖具体技能的触发或权限。
 
-**优先程序化处理。** 建模、分盘、切片、保存与检查优先选当前可用的CLI、脚本、文件/API及直接图像读取；用户明确要求界面操作或必要操作无法经这些路径完成时，再按工具技能与授权使用界面控制。CLI、文件/刀路检查与GUI实测分别报告，不把未做的验收写成已完成，也不换入口绕过拒绝。
+**优先程序化处理。** 建模、分盘、切片、保存与检查优先走可用CLI、脚本、文件/API及直接读图。用户明确要求，或“打不开工程、进不了准备页”等原故障无法由这些路径验收时，再按相关工具技能和授权使用GUI；故障核同入口和实际环境。CLI结果、代理GUI实测和用户确认分别报告，不为常规验收额外启动图形应用，不换入口绕过拒绝。
 
 在技能组合、CAD/建模路线、参数候选和切片方案的有限取舍中，若第二意见可能减少错误选择或昂贵试错，主动按需用[Jev判断副手](references/tool-routing.md#jev按需判断副手)，不必等卡住才用。主模型提出和改进候选，Jev辅助选择值得先验证的方向，专业工具产出并检查结果；简单明确、规则或测试已能决定的事直接推进，不为调用而调用。
 
@@ -62,7 +62,7 @@ metadata:
 
 ## 交付与每次使用的回流
 
-交付可继续编辑的成果及准确入口；源模型、网格、图、工程与验证对应版本，按需要保留哈希。切片修改后保存、重开、复切并核关键路径。数字检查不等于实物尺寸、装配、外观、强度或耐久验收；按用途说明尚缺的物理证据。
+交付先区分参数源、模型交换文件、可编辑切片工程与预切片结果，只承诺实际内容。补格式复用冻结几何并独立核转换结果；涉及工艺/切片工程交付或修改时，再核机料和有效设置，保存、重开、复切并查关键路径，详见[3MF交付类型](references/slicing-and-delivery.md#3mf交付类型与补格式)。几何、路径、GUI和实物证据分别记录，不以相同扩展名强制同一流程。
 
 正文、报告和配套附件统一留所属项目；跨项目参考与技能维护留工作区对应目录，**Obsidian知识库不保留正文副本或跳转占位**。整理、迁入、交接按[项目组织](references/project-organization.md)保全来源与版本，只更新负责的状态段落。
 
@@ -75,4 +75,4 @@ metadata:
 
 本地文件更新不等于其他会话已加载、云端同步或后台监听；不新增常驻机制。共享文件写入前重读并合并本次内容，保留并行成果。需要历史依据时再读[会话来源](references/session-sources.md)、[项目结构库](references/project-patterns.md)、[B-RAIL案例](references/b-rail-case.md)或当前项目的收尾记录。
 
-公开版1.6.1在[独立仓库](https://github.com/Loveacup/3d-print-modeling)维护，技能自身反馈见[Issues](https://github.com/Loveacup/3d-print-modeling/issues)；内容边界与来源见[发布说明](references/publication-notes.md)。本包不包含所提专业技能、私人记录或运行环境；缺能力时查[配套上游安装目录](references/upstream-skills.md)，按需选择，不自动安装或部署。
+公开版1.7.0在[独立仓库](https://github.com/Loveacup/3d-print-modeling)维护，技能自身反馈见[Issues](https://github.com/Loveacup/3d-print-modeling/issues)；内容边界与来源见[发布说明](references/publication-notes.md)。本包不包含所提专业技能、私人记录或运行环境；可选原生网格探针仅用Python标准库，缺专业能力时查[配套上游安装目录](references/upstream-skills.md)，不自动安装或部署。
